@@ -1,0 +1,23 @@
+{
+   "Name": "<b><color=red>ПОКУПКИ</color> от BOSSа!!!</b>",
+   "Description": "<b>Копите очки и покупайте!!!</b>",
+   "StartClientVersion": 334,
+   "MapLists": [
+     {
+       "MapListId": 11231,
+       "Name": "Создал BOSS!!!: Карты для режима ПОКУПКИ"
+     }
+   ],
+   "Parameters": {
+     "Bool": [
+      { 
+         "Name": "Damage", 
+         "DisplayName": "GmParams/Damage" 
+       }, 
+       { 
+         "Name": "PartialDesruction", 
+         "DisplayName": "GmParams/PartialDesruction" 
+       }
+     ]
+   }
+}
