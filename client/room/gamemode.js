@@ -15,7 +15,6 @@ Teams.Get("Red").Spawns.SpawnPointsGroups.Add(2);
 playersTeam.Build.BlocksSet.Value = BuildBlocksSet.Blue;
 admsTeam.Build.BlocksSet.Value = BuildBlocksSet.AllClear;
 
-var byBoss = "<b><color=red>ПОКУПКИ</color> от BOSSа!!!</b>";
 Teams.Get("Blue").Properties.Get("Deaths").Value = "<b><color=red>ПОКУПКИ</color> от BOSSа!!!</b>";
 Teams.Get("Red").Properties.Get("Deaths").Value = "<b><color=red>ПОКУПКИ</color> от BOSSа!!!</b>";
 
