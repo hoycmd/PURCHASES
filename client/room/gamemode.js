@@ -526,14 +526,6 @@ DamageInTrueTrigger.OnEnter.Add(function(player){
   player.Ui.Hint.Value = "У тебя отобрали бессмертие";
 });
 
-var Plus1ScoreTrigger = AreaPlayerTriggerService.Get("+ 1 очко")
-Plus1ScoreTrigger.Tags = ["+ 1 очко"];
-Plus1ScoreTrigger.Enable = true;
-Plus1ScoreTrigger.OnEnter.Add(function(player){
-  player.Properties.Scores.Value += 1;
-  player.Ui.Hint.Value = "Ты получил 1 очко теперь у тебя " + player.Properties.Scores.Value + " очков";
-});
-
 var Plus5ScoresTrigger = AreaPlayerTriggerService.Get("+ 5 очков")
 Plus5ScoresTrigger.Tags = ["+ 5 очков"];
 Plus5ScoresTrigger.Enable = true;
@@ -627,30 +619,6 @@ AdmTrigger.OnEnter.Add(function(player){
   player.Build.CollapseChangeEnable.Value = true;
   player.Spawns.Spawn();
   player.Ui.Hint.Value = "Тебе дали админку";
-});
-
-var PvpTrigger = AreaPlayerTriggerService.Get("ПВП")
-PvpTrigger.Tags = ["ПВП"];
-PvpTrigger.Enable = true;
-PvpTrigger.OnEnter.Add(function(player){
-  player.inventory.Main.Value = true;
-  player.inventory.MainInfinity.Value = true;
-  player.inventory.Secondary.Value = true;
-  player.inventory.SecondaryInfinity.Value = true;
-  player.inventory.Explosive.Value = true;
-  player.inventory.ExplosiveInfinity.Value = true;
-  player.inventory.Melee.Value = true;
-  player.Ui.Hint.Value = "ПВП вкл.";
-});
-PvpTrigger.OnExit.Add(function(player){
-  player.inventory.Main.Value = false;
-  player.inventory.MainInfinity.Value = false;
-  player.inventory.Secondary.Value = false;
-  player.inventory.SecondaryInfinity.Value = false;
-  player.inventory.Explosive.Value = false;
-  player.inventory.ExplosiveInfinity.Value = false;
-  player.inventory.Melee.Value = false;
-  player.Ui.Hint.Value = "ПВП выкл.";
 });
 
 var SpawnTrigger = AreaPlayerTriggerService.Get("Возврат на спавн")
