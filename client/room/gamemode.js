@@ -1,4 +1,4 @@
-import { DisplayValueHeader } from 'pixel_combats/basic';
+import { DisplayValueHeader, Color } from 'pixel_combats/basic';
 import { Game, Players, Inventory, LeaderBoard, BuildBlocksSet, Teams, Damage, BreackGraph, Ui, Properties, GameMode, Spawns, Timers, TeamsBalancer } from 'pixel_combats/room';
 
 Damage.GetContext().DamageOut.Value = true;
@@ -6,10 +6,10 @@ Damage.GetContext().FriendlyFire.Value = true;
 BreackGraph.OnlyPlayerBlocksDmg = GameMode.Parameters.GetBool("PartialDesruction");
 BreackGraph.WeakBlocks = GameMode.Parameters.GetBool("LoosenBlocks");
 
-Teams.Add("Blue", "<b>Игроки</b>", { b: 1 });
-Teams.Add("Red", "<b>Админы</b>", { p: 1 });
-var admsTeam = Teams.Get("Red");
-var playersTeam = Teams.Get("Blue");
+Teams.Add("Players", "<b>Игроки</b>", new Color(1, 0, 0, 0));
+Teams.Add("Adms", "<b>Админы</b>", new Color(0, 0, 0, 0));
+var admsTeam = Teams.Get("Adms");
+var playersTeam = Teams.Get("Players");
 Teams.Get("Blue").Spawns.SpawnPointsGroups.Add(1);
 Teams.Get("Red").Spawns.SpawnPointsGroups.Add(2);
 playersTeam.Build.BlocksSet.Value = BuildBlocksSet.Blue;
