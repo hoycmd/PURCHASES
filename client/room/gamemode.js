@@ -6,10 +6,10 @@ Damage.GetContext().FriendlyFire.Value = true;
 BreackGraph.OnlyPlayerBlocksDmg = GameMode.Parameters.GetBool("PartialDesruction");
 BreackGraph.WeakBlocks = GameMode.Parameters.GetBool("LoosenBlocks");
 
-Teams.Add("Players", "<b>Игроки</b>", new Color(1, 0, 0, 0));
-Teams.Add("Adms", "<b>Админы</b>", new Color(0, 0, 0, 0));
-var admsTeam = Teams.Get("Adms");
-var playersTeam = Teams.Get("Players");
+Teams.Add("Blue", "<b>Игроки</b>", new Color(1, 0, 0, 0));
+Teams.Add("Red", "<b>Админы</b>", new Color(0, 0, 0, 0));
+var admsTeam = Teams.Get("Red");
+var playersTeam = Teams.Get("Blue");
 Teams.Get("Blue").Spawns.SpawnPointsGroups.Add(1);
 Teams.Get("Red").Spawns.SpawnPointsGroups.Add(2);
 playersTeam.Build.BlocksSet.Value = BuildBlocksSet.Blue;
