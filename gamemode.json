@@ -18,8 +18,7 @@
         "Name": "hp",
         "DisplayName": "50хп вместо 100хп",
         "Default": true
-      },
-      {
+      }
     ]
   }
 }
