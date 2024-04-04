@@ -1,23 +1,25 @@
 {
-   "Name": "<b><color=red>ПОКУПКИ</color> от BOSSа!!!</b>",
-   "Description": "<b>Копите очки и покупайте!!!</b>",
-   "StartClientVersion": 334,
-   "MapLists": [
-     {
-       "MapListId": 11231,
-       "Name": "Создал BOSS!!!: Карты для режима ПОКУПКИ"
-     }
-   ],
-   "Parameters": {
-     "Bool": [
-      { 
-         "Name": "Damage", 
-         "DisplayName": "GmParams/Damage" 
-       }, 
-       { 
-         "Name": "PartialDesruction", 
-         "DisplayName": "GmParams/PartialDesruction" 
-       }
-     ]
-   }
+  "Name": "<b><color=red>ПОКУПКИ</color> от BOSS-а!!!</b>",
+  "Description": "<b>Копите очки и покупайте!!!</b>",
+  "StartClientVersion": 510,
+  "MapFilter": {
+    "IsBlank": false,
+    "HasParcourEnd": false
+  },
+  "MapLists": [
+    {
+      "MapListId": 11231,
+      "Name": "Создал BOSS!!!: Карты для режима ПОКУПКИ"
+    }
+  ],
+  "Parameters": {
+    "Bool": [
+      {
+        "Name": "hp",
+        "DisplayName": "50хп вместо 100хп",
+        "Default": true
+      },
+      {
+    ]
+  }
 }
