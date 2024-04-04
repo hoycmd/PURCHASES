@@ -1,3 +1,8 @@
+using System.Threading;
+using System.Threading.Tasks;
+using PixelCombats.DTO.Room.Map;
+namespace PixelCombats.Api.Client.Maps;
+
 import { DisplayValueHeader, Color } from 'pixel_combats/basic';
 import { Game, Players, Inventory, LeaderBoard, BuildBlocksSet, Teams, Damage, BreackGraph, Ui, Properties, GameMode, Spawns, Timers, TeamsBalancer } from 'pixel_combats/room';
 
