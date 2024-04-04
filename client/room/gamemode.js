@@ -3,8 +3,7 @@ import { Game, Players, Inventory, LeaderBoard, BuildBlocksSet, Teams, Damage, B
 
 Damage.GetContext().DamageOut.Value = true;
 Damage.GetContext().FriendlyFire.Value = true;
-BreackGraph.OnlyPlayerBlocksDmg = GameMode.Parameters.GetBool("PartialDesruction");
-BreackGraph.WeakBlocks = GameMode.Parameters.GetBool("LoosenBlocks");
+BreackGraph.OnlyPlayerBlocksDmg = true;
 
 Teams.Add("Blue", "<b>Игроки</b>", new Color(1, 0, 0, 0));
 Teams.Add("Red", "<b>Админы</b>", new Color(0, 0, 0, 0));
