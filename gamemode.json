@@ -15,7 +15,7 @@
   "Parameters": {
     "Bool": [
       {
-        "Name": "hp",
+        "Name": "miniHp",
         "DisplayName": "50хп вместо 100хп",
         "Default": true
       }
