@@ -91,7 +91,6 @@ Teams.OnRequestJoinTeam.Add(function(player,team){
     player.inventory.Explosive.Value = true;
     player.inventory.ExplosiveInfinity.Value = true;
     player.Build.FlyEnable.Value = true;
-    player.inventory.Build.Value = true;
     player.contextedProperties.MaxHp.Value = 10000;
   }
   if (player.id == "41F16562BF7046EA" || player.id == "78B0B66D795E5120") {
@@ -99,7 +98,9 @@ Teams.OnRequestJoinTeam.Add(function(player,team){
   } else {
     Teams.Get("Blue").Add(player);
   }
-  player.contextedProperties.MaxHp.Value = 50;
+  if (GameMode.Parameters.GetBool("miniHp")) {
+    player.contextedProperties.MaxHp.Value = 50;
+  }
   // Для меня
   if (player.id == "41F16562BF7046EA") {
     getadm(player);
@@ -108,10 +109,7 @@ Teams.OnRequestJoinTeam.Add(function(player,team){
   if (player.id == "78B0B66D795E5120") {
     getadm(player);
   }
-  // Для n1ckа
-  if (player.id == "2F1955AAE64508B9") {
-    getvip3(player);
-  }
+  // Для n1ckа (2F1955AAE64508B9)
   // Для ghostа
   if (player.id == "3D58DB48C21B6054") {
     getvip3(player);
@@ -132,8 +130,12 @@ Teams.OnRequestJoinTeam.Add(function(player,team){
   if (player.id == "CD8BA5F2ABD9BBDA") {
     getvip2(player);
   }
+  // Для ...
+  if (player.id == "2827CD16AE7CC982") {
+    getvip2(player);
+  }
   // Для брата
-  if (player.id == "8681FCE77AB4939D") {
+  if (player.id == "D8BF867D8C4DED16") {
     getvip3(player);
   }
   // Для ГГчеликаГГ
@@ -146,16 +148,16 @@ Teams.OnRequestJoinTeam.Add(function(player,team){
   }
   if (player.id == "41F16562BF7046EA" || player.id == "78B0B66D795E5120" || player.id == "2F1955AAE64508B9" || player.id == "3D58DB48C21B6054" || player.id == "AAD18F7FB400BD5F" || player.id == "B0B43E6C2C10E541" || player.id == "AAA9FBB8CCA3CD90" || player.id == "8681FCE77AB4939D" || player.id == "40265AFE3B5A0AC2" || player.id == "C957E4E920E8ACD") {
   if (player.id == "41F16562BF7046EA") {
-    player.Properties.Get("Статус").Value = "ГЛ. АДМИН";
+    player.Properties.Get("Статус").Value = "Гл. админ";
   }
   if (player.id == "78B0B66D795E5120") {
-    player.Properties.Get("Статус").Value = "АДМИН";
+    player.Properties.Get("Статус").Value = "Админ";
   }
   if (player.id == "2F1955AAE64508B9" || player.id == "3D58DB48C21B6054" || player.id == "AAD18F7FB400BD5F" || player.id == "B0B43E6C2C10E541" || player.id == "AAA9FBB8CCA3CD90" || player.id == "8681FCE77AB4939D" || player.id == "40265AFE3B5A0AC2" || player.id == "C957E4E920E8ACD") {
-    player.Properties.Get("Статус").Value = "VIP";
+    player.Properties.Get("Статус").Value = "VIP Игрок";
   }
   } else {
-    player.Properties.Get("Статус").Value = "ИГРОК";
+    player.Properties.Get("Статус").Value = "Игрок";
   }
 });
 
