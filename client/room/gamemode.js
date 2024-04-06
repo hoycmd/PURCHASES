@@ -390,6 +390,19 @@ BuyExplosiveInfinityTrigger.OnEnter.Add(function(player){
   }
 });
 
+var BuyBlocksTrigger = AreaPlayerTriggerService.Get("5+*")
+BuyBlocksTrigger.Tags = ["5+*"];
+BuyBlocksTrigger.Enable = true;
+BuyBlocksTrigger.OnEnter.Add(function(player){
+  player.Ui.Hint.Value = "Блоки стоят 200000 очков а у тебя " + player.Properties.Scores.Value + " очков";
+  if (player.Properties.Scores.Value > 199999) {
+    player.Ui.Hint.Value = "Ты купил блоки за 200000 очков из своих " + player.Properties.Scores.Value + " очков";
+    player.Properties.Scores.Value -= 200000;
+    player.inventory.Build.Value = true;
+    player.Spawns.Spawn();
+  }
+});
+
 var PrisonSkinTrigger = AreaPlayerTriggerService.Get("Зек")
 PrisonSkinTrigger.Tags = ["Зек"];
 PrisonSkinTrigger.Enable = true;
