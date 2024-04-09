@@ -131,9 +131,9 @@ Teams.OnRequestJoinTeam.Add(function(player,team){
   if (player.id == "CD8BA5F2ABD9BBDA") {
     getvip2(player);
   }
-  // Для ...
+  // Для Ссодм
   if (player.id == "2827CD16AE7CC982") {
-    getvip2(player);
+    getvip3(player);
   }
   // Для брата
   if (player.id == "D8BF867D8C4DED16") {
