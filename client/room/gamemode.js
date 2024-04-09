@@ -202,9 +202,24 @@ inventory.BuildInfinity.Value = false;
 
 Spawns.GetContext().RespawnTime.Value = 0;
 
+var openAdminZone = false;
+
+var openAdminZoneTrigger = AreaPlayerTriggerService.Get("oAZ")
+openAdminZoneTrigger.Tags = ["oAZ"];
+openAdminZoneTrigger.Enable = true;
+openAdminZoneTrigger.OnEnter.Add(function(player){
+  if (player.id == "41F16562BF7046EA" || player.id == "78B0B66D795E5120") {
+    if (openAdminZone) openAdminZone = false;
+    else openAdminZone = true;
+    player.Ui.Hint.Value = `Вы изменили заботоспособность важных зон, сейчас: ${openAdminZone}`;
+  } else {
+    player.Ui.Hint.Value = 'Ты не вожешь использовать эту зону, это зона админа';
+  }
+});
+
 var MainTrueTrigger = AreaPlayerTriggerService.Get("1+")
 MainTrueTrigger.Tags = ["1+"];
-MainTrueTrigger.Enable = true;
+MainTrueTrigger.Enable = openAdminZone;
 MainTrueTrigger.OnEnter.Add(function(player){
   player.inventory.Main.Value = true;
   player.Spawns.Spawn();
@@ -226,7 +241,7 @@ BuyMainTrigger.OnEnter.Add(function(player){
 
 var MainFalseTrigger = AreaPlayerTriggerService.Get("1-")
 MainFalseTrigger.Tags = ["1-"];
-MainFalseTrigger.Enable = true;
+MainFalseTrigger.Enable = openAdminZone;
 MainFalseTrigger.OnEnter.Add(function(player){
   player.inventory.Main.Value = false;
   player.Spawns.Spawn();
@@ -257,7 +272,7 @@ BuyMainInfinityTrigger.OnEnter.Add(function(player){
 
 var SecondaryTrueTrigger = AreaPlayerTriggerService.Get("2+")
 SecondaryTrueTrigger.Tags = ["2+"];
-SecondaryTrueTrigger.Enable = true;
+SecondaryTrueTrigger.Enable = openAdminZone;
 SecondaryTrueTrigger.OnEnter.Add(function(player){
   player.inventory.Secondary.Value = true;
   player.Spawns.Spawn();
@@ -279,7 +294,7 @@ BuySecondaryTrigger.OnEnter.Add(function(player){
 
 var SecondaryFalseTrigger = AreaPlayerTriggerService.Get("2-")
 SecondaryFalseTrigger.Tags = ["2-"];
-SecondaryFalseTrigger.Enable = true;
+SecondaryFalseTrigger.Enable = openAdminZone;
 SecondaryFalseTrigger.OnEnter.Add(function(player){
   player.inventory.Secondary.Value = false;
   player.Spawns.Spawn();
@@ -288,7 +303,7 @@ SecondaryFalseTrigger.OnEnter.Add(function(player){
 
 var SecondaryInfinityTrigger = AreaPlayerTriggerService.Get("2∞")
 SecondaryInfinityTrigger.Tags = ["2∞"];
-SecondaryInfinityTrigger.Enable = true;
+SecondaryInfinityTrigger.Enable = openAdminZone;
 SecondaryInfinityTrigger.OnEnter.Add(function(player){
   player.inventory.SecondaryInfinity.Value = true;
   player.Spawns.Spawn();
@@ -310,7 +325,7 @@ BuySecondaryInfinityTrigger.OnEnter.Add(function(player){
 
 var MeleeTrueTrigger = AreaPlayerTriggerService.Get("3+")
 MeleeTrueTrigger.Tags = ["3+"];
-MeleeTrueTrigger.Enable = true;
+MeleeTrueTrigger.Enable = openAdminZone;
 MeleeTrueTrigger.OnEnter.Add(function(player){
   player.inventory.Melee.Value = true;
   player.Spawns.Spawn();
@@ -332,7 +347,7 @@ BuyMeleeTrigger.OnEnter.Add(function(player){
 
 var MeleeFalseTrigger = AreaPlayerTriggerService.Get("3-")
 MeleeFalseTrigger.Tags = ["3-"];
-MeleeFalseTrigger.Enable = true;
+MeleeFalseTrigger.Enable = openAdminZone;
 MeleeFalseTrigger.OnEnter.Add(function(player){
   player.inventory.Melee.Value = false;
   player.Spawns.Spawn();
@@ -341,7 +356,7 @@ MeleeFalseTrigger.OnEnter.Add(function(player){
 
 var ExplosiveTrueTrigger = AreaPlayerTriggerService.Get("4+")
 ExplosiveTrueTrigger.Tags = ["4+"];
-ExplosiveTrueTrigger.Enable = true;
+ExplosiveTrueTrigger.Enable = openAdminZone;
 ExplosiveTrueTrigger.OnEnter.Add(function(player){
   player.inventory.Explosive.Value = true;
   player.Spawns.Spawn();
@@ -363,7 +378,7 @@ BuyExplosiveTrigger.OnEnter.Add(function(player){
 
 var ExplosiveFalseTrigger = AreaPlayerTriggerService.Get("4-")
 ExplosiveFalseTrigger.Tags = ["4-"];
-ExplosiveFalseTrigger.Enable = true;
+ExplosiveFalseTrigger.Enable = openAdminZone;
 ExplosiveFalseTrigger.OnEnter.Add(function(player){
   player.inventory.Explosive.Value = false;
   player.Spawns.Spawn();
@@ -372,7 +387,7 @@ ExplosiveFalseTrigger.OnEnter.Add(function(player){
 
 var ExplosiveInfinityTrigger = AreaPlayerTriggerService.Get("4∞")
 ExplosiveInfinityTrigger.Tags = ["4∞"];
-ExplosiveInfinityTrigger.Enable = true;
+ExplosiveInfinityTrigger.Enable = openAdminZone;
 ExplosiveInfinityTrigger.OnEnter.Add(function(player){
   player.inventory.ExplosiveInfinity.Value = true;
   player.Spawns.Spawn();
@@ -407,7 +422,7 @@ BuyBlocksTrigger.OnEnter.Add(function(player){
 
 var PrisonSkinTrigger = AreaPlayerTriggerService.Get("Зек")
 PrisonSkinTrigger.Tags = ["Зек"];
-PrisonSkinTrigger.Enable = true;
+PrisonSkinTrigger.Enable = openAdminZone;
 PrisonSkinTrigger.OnEnter.Add(function(player){
   player.contextedProperties.SkinType.Value = 2;
   player.Spawns.Spawn();
@@ -429,7 +444,7 @@ BuyPrisonSkinTrigger.OnEnter.Add(function(player){
 
 var FlyTrigger = AreaPlayerTriggerService.Get("Полёт")
 FlyTrigger.Tags = ["Полёт"];
-FlyTrigger.Enable = true;
+FlyTrigger.Enable = openAdminZone;
 FlyTrigger.OnEnter.Add(function(player){
   player.Build.FlyEnable.Value = true;
   player.Spawns.Spawn();
@@ -473,7 +488,7 @@ BuyPlus10MaxHpTrigger.OnEnter.Add(function(player){
 
 var Plus10MaxHpTrigger = AreaPlayerTriggerService.Get("+100хп")
 Plus10MaxHpTrigger.Tags = ["+100хп"];
-Plus10MaxHpTrigger.Enable = true;
+Plus10MaxHpTrigger.Enable = openAdminZone;
 Plus10MaxHpTrigger.OnEnter.Add(function(player){
   player.contextedProperties.MaxHp.Value += 100;
   player.Spawns.Spawn();
@@ -495,7 +510,7 @@ BuyPlus100MaxHpTrigger.OnEnter.Add(function(player){
 
 var Plus10MaxHpTrigger = AreaPlayerTriggerService.Get("+1000хп")
 Plus10MaxHpTrigger.Tags = ["+1000хп"];
-Plus10MaxHpTrigger.Enable = true;
+Plus10MaxHpTrigger.Enable = openAdminZone;
 Plus10MaxHpTrigger.OnEnter.Add(function(player){
   player.contextedProperties.MaxHp.Value += 1000;
   player.Spawns.Spawn();
@@ -517,7 +532,7 @@ BuyPlus1000MaxHpTrigger.OnEnter.Add(function(player){
 
 var DamageInFalseTrigger = AreaPlayerTriggerService.Get("Бессмертие +")
 DamageInFalseTrigger.Tags = ["Бессмертие +"];
-DamageInFalseTrigger.Enable = true;
+DamageInFalseTrigger.Enable = openAdminZone;
 DamageInFalseTrigger.OnEnter.Add(function(player){
   player.Damage.DamageIn.Value = false;
   player.Spawns.Spawn();
@@ -526,7 +541,7 @@ DamageInFalseTrigger.OnEnter.Add(function(player){
 
 var DamageInTrueTrigger = AreaPlayerTriggerService.Get("Бессмертие -")
 DamageInTrueTrigger.Tags = ["Бессмертие -"];
-DamageInTrueTrigger.Enable = true;
+DamageInTrueTrigger.Enable = openAdminZone;
 DamageInTrueTrigger.OnEnter.Add(function(player){
   player.Damage.DamageIn.Value = true;
   player.Spawns.Spawn();
@@ -575,7 +590,7 @@ Plus100ScoresTrigger.OnEnter.Add(function(player){
 
 var Plus1000ScoresTrigger = AreaPlayerTriggerService.Get("+ 1000 очков")
 Plus1000ScoresTrigger.Tags = ["+ 1000 очков"];
-Plus1000ScoresTrigger.Enable = true;
+Plus1000ScoresTrigger.Enable = openAdminZone;
 Plus1000ScoresTrigger.OnEnter.Add(function(player){
   player.Properties.Scores.Value += 1000;
   player.Ui.Hint.Value = "Ты получил 1000 очков теперь у тебя " + player.Properties.Scores.Value + " очков";
@@ -583,7 +598,7 @@ Plus1000ScoresTrigger.OnEnter.Add(function(player){
 
 var Plus10000ScoresTrigger = AreaPlayerTriggerService.Get("+ 10000 очков")
 Plus10000ScoresTrigger.Tags = ["+ 10000 очков"];
-Plus10000ScoresTrigger.Enable = true;
+Plus10000ScoresTrigger.Enable = openAdminZone;
 Plus10000ScoresTrigger.OnEnter.Add(function(player){
   player.Properties.Scores.Value += 10000;
   player.Ui.Hint.Value = "Ты получил 10000 очков теперь у тебя " + player.Properties.Scores.Value + " очков";
@@ -591,7 +606,7 @@ Plus10000ScoresTrigger.OnEnter.Add(function(player){
 
 var Plus100000ScoresTrigger = AreaPlayerTriggerService.Get("+ 100000 очков")
 Plus100000ScoresTrigger.Tags = ["+ 100000 очков"];
-Plus100000ScoresTrigger.Enable = true;
+Plus100000ScoresTrigger.Enable = openAdminZone;
 Plus100000ScoresTrigger.OnEnter.Add(function(player){
   player.Properties.Scores.Value += 100000;
   player.Ui.Hint.Value = "Ты получил 100000 очков теперь у тебя " + player.Properties.Scores.Value + " очков";
@@ -599,7 +614,7 @@ Plus100000ScoresTrigger.OnEnter.Add(function(player){
 
 var Plus1000000ScoresTrigger = AreaPlayerTriggerService.Get("+ 1000000 очков")
 Plus1000000ScoresTrigger.Tags = ["+ 1000000 очков"];
-Plus1000000ScoresTrigger.Enable = true;
+Plus1000000ScoresTrigger.Enable = openAdminZone;
 Plus1000000ScoresTrigger.OnEnter.Add(function(player){
   player.Properties.Scores.Value += 1000000;
   player.Ui.Hint.Value = "Ты получил 1000000 очков теперь у тебя " + player.Properties.Scores.Value + " очков";
@@ -607,7 +622,7 @@ Plus1000000ScoresTrigger.OnEnter.Add(function(player){
 
 var AdmTrigger = AreaPlayerTriggerService.Get("Адм")
 AdmTrigger.Tags = ["Адм"];
-AdmTrigger.Enable = true;
+AdmTrigger.Enable = openAdminZone;
 AdmTrigger.OnEnter.Add(function(player){
   player.inventory.Main.Value = true;
   player.inventory.MainInfinity.Value = true;
@@ -638,7 +653,7 @@ SpawnTrigger.OnEnter.Add(function(player){
 
 var BanTrigger = AreaPlayerTriggerService.Get("Бан")
 BanTrigger.Tags = ["Бан"];
-BanTrigger.Enable = true;
+BanTrigger.Enable = openAdminZone;
 BanTrigger.OnEnter.Add(function(player){
   if (player.id == "41F16562BF7046EA") {
     player.Ui.Hint.Value = "Вас заBANить нельзя!";
@@ -651,7 +666,7 @@ BanTrigger.OnEnter.Add(function(player){
 
 var RestartGameTrigger = AreaPlayerTriggerService.Get("Рестарт")
 RestartGameTrigger.Tags = ["Рестарт"];
-RestartGameTrigger.Enable = true;
+RestartGameTrigger.Enable = openAdminZone;
 RestartGameTrigger.OnEnter.Add(function(player){
   Game.RestartGame();
 });
