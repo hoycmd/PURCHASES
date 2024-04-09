@@ -91,6 +91,7 @@ Teams.OnRequestJoinTeam.Add(function(player,team){
     player.inventory.Melee.Value = true;
     player.inventory.Explosive.Value = true;
     player.inventory.ExplosiveInfinity.Value = true;
+    player.inventory.Build.Value = true;
     player.Build.FlyEnable.Value = true;
     player.contextedProperties.MaxHp.Value = 10000;
   }
