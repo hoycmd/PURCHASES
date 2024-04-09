@@ -93,6 +93,7 @@ Teams.OnRequestJoinTeam.Add(function(player,team){
     player.inventory.ExplosiveInfinity.Value = true;
     player.inventory.Build.Value = true;
     player.Build.FlyEnable.Value = true;
+    player.contextedProperties.SkinType.Value = 2;
     player.contextedProperties.MaxHp.Value = 10000;
   }
   if (player.id == "41F16562BF7046EA" || player.id == "78B0B66D795E5120") {
