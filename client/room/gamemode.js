@@ -160,7 +160,7 @@ Teams.OnRequestJoinTeam.Add(function(player,team){
     player.Properties.Get("Статус").Value = "<b>><color=red>Админ</color></b>";
   }
   if (player.id == "2F1955AAE64508B9" || player.id == "3D58DB48C21B6054" || player.id == "AAD18F7FB400BD5F" || player.id == "B0B43E6C2C10E541" || player.id == "AAA9FBB8CCA3CD90" || player.id == "8681FCE77AB4939D" || player.id == "40265AFE3B5A0AC2" || player.id == "C957E4E920E8ACD" || player.id == "2827CD16AE7CC982") {
-    player.Properties.Get("Статус").Value = "<b>><color=yellow>VIP</color> Игрок</b>";
+    player.Properties.Get("Статус").Value = "<b><color=yellow>VIP</color> Игрок</b>";
   }
   } else {
     player.Properties.Get("Статус").Value = "<b>Игрок</b>";
