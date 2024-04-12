@@ -208,9 +208,13 @@ var MainTrueTrigger = AreaPlayerTriggerService.Get("1+")
 MainTrueTrigger.Tags = ["1+"];
 MainTrueTrigger.Enable = true;
 MainTrueTrigger.OnEnter.Add(function(player){
+  if (enableAdminsZones) {
   player.inventory.Main.Value = true;
   player.Spawns.Spawn();
   player.Ui.Hint.Value = "Тебе дали первичное оружие";
+  } else {
+    player.Ui.Hint.Value = "Зона отключена";
+  }
 });
 
 var BuyMainTrigger = AreaPlayerTriggerService.Get("1+*")
@@ -230,18 +234,26 @@ var MainFalseTrigger = AreaPlayerTriggerService.Get("1-")
 MainFalseTrigger.Tags = ["1-"];
 MainFalseTrigger.Enable = true;
 MainFalseTrigger.OnEnter.Add(function(player){
+  if (enableAdminsZones) {
   player.inventory.Main.Value = false;
   player.Spawns.Spawn();
   player.Ui.Hint.Value = "У тебя отобрали первичное оружие";
+  } else {
+    player.Ui.Hint.Value = "Зона отключена";
+  }
 });
 
 var MainInfinityTrigger = AreaPlayerTriggerService.Get("1∞")
 MainInfinityTrigger.Tags = ["1∞"];
 MainInfinityTrigger.Enable = true;
 MainInfinityTrigger.OnEnter.Add(function(player){
+  if (enableAdminsZones) {
   player.inventory.MainInfinity.Value = true;
   player.Spawns.Spawn();
   player.Ui.Hint.Value = "Тебе дали патроны ∞ на первичное оружие";
+  } else {
+    player.Ui.Hint.Value = "Зона отключена";
+  }
 });
 
 var BuyMainInfinityTrigger = AreaPlayerTriggerService.Get("1∞*")
@@ -345,9 +357,13 @@ var ExplosiveTrueTrigger = AreaPlayerTriggerService.Get("4+")
 ExplosiveTrueTrigger.Tags = ["4+"];
 ExplosiveTrueTrigger.Enable = true;
 ExplosiveTrueTrigger.OnEnter.Add(function(player){
+  if (enableAdminsZones) {
   player.inventory.Explosive.Value = true;
   player.Spawns.Spawn();
   player.Ui.Hint.Value = "Тебе дали взрывчатые снаряды";
+  } else {
+    player.Ui.Hint.Value = "Зона отключена";
+  }
 });
 
 var BuyExplosiveTrigger = AreaPlayerTriggerService.Get("4+*")
@@ -367,18 +383,26 @@ var ExplosiveFalseTrigger = AreaPlayerTriggerService.Get("4-")
 ExplosiveFalseTrigger.Tags = ["4-"];
 ExplosiveFalseTrigger.Enable = true;
 ExplosiveFalseTrigger.OnEnter.Add(function(player){
+  if (enableAdminsZones) {
   player.inventory.Explosive.Value = false;
   player.Spawns.Spawn();
   player.Ui.Hint.Value = "У тебя отобрали взрывчатые снаряды";
+  } else {
+    player.Ui.Hint.Value = "Зона отключена";
+  }
 });
 
 var ExplosiveInfinityTrigger = AreaPlayerTriggerService.Get("4∞")
 ExplosiveInfinityTrigger.Tags = ["4∞"];
 ExplosiveInfinityTrigger.Enable = true;
 ExplosiveInfinityTrigger.OnEnter.Add(function(player){
+  if (enableAdminsZones) {
   player.inventory.ExplosiveInfinity.Value = true;
   player.Spawns.Spawn();
   player.Ui.Hint.Value = "Тебе дали взрывчатые снаряды ∞";
+  } else {
+    player.Ui.Hint.Value = "Зона отключена";
+  }
 });
 
 var BuyExplosiveInfinityTrigger = AreaPlayerTriggerService.Get("4∞*")
@@ -411,9 +435,13 @@ var PrisonSkinTrigger = AreaPlayerTriggerService.Get("Зек")
 PrisonSkinTrigger.Tags = ["Зек"];
 PrisonSkinTrigger.Enable = true;
 PrisonSkinTrigger.OnEnter.Add(function(player){
+  if (enableAdminsZones) {
   player.contextedProperties.SkinType.Value = 2;
   player.Spawns.Spawn();
   player.Ui.Hint.Value = "Тебе дали скин зека";
+  } else {
+    player.Ui.Hint.Value = "Зона отключена";
+  }
 });
 
 var BuyPrisonSkinTrigger = AreaPlayerTriggerService.Get("Зек*")
@@ -433,9 +461,13 @@ var FlyTrigger = AreaPlayerTriggerService.Get("Полёт")
 FlyTrigger.Tags = ["Полёт"];
 FlyTrigger.Enable = true;
 FlyTrigger.OnEnter.Add(function(player){
+  if (enableAdminsZones) {
   player.Build.FlyEnable.Value = true;
   player.Spawns.Spawn();
   player.Ui.Hint.Value = "Тебе дали полёт";
+  } else {
+    player.Ui.Hint.Value = "Зона отключена";
+  }
 });
 
 var BuyFlyTrigger = AreaPlayerTriggerService.Get("Полёт*")
@@ -473,13 +505,17 @@ BuyPlus10MaxHpTrigger.OnEnter.Add(function(player){
   }
 });
 
-var Plus10MaxHpTrigger = AreaPlayerTriggerService.Get("+100хп")
-Plus10MaxHpTrigger.Tags = ["+100хп"];
-Plus10MaxHpTrigger.Enable = true;
-Plus10MaxHpTrigger.OnEnter.Add(function(player){
+var Plus100MaxHpTrigger = AreaPlayerTriggerService.Get("+100хп")
+Plus100MaxHpTrigger.Tags = ["+100хп"];
+Plus100MaxHpTrigger.Enable = true;
+Plus100MaxHpTrigger.OnEnter.Add(function(player){
+  if (enableAdminsZones) {
   player.contextedProperties.MaxHp.Value += 100;
   player.Spawns.Spawn();
   player.Ui.Hint.Value = "Тебе дали +100хп";
+  } else {
+    player.Ui.Hint.Value = "Зона отключена";
+  }
 });
 
 var BuyPlus100MaxHpTrigger = AreaPlayerTriggerService.Get("+100хп*")
@@ -495,13 +531,17 @@ BuyPlus100MaxHpTrigger.OnEnter.Add(function(player){
   }
 });
 
-var Plus10MaxHpTrigger = AreaPlayerTriggerService.Get("+1000хп")
-Plus10MaxHpTrigger.Tags = ["+1000хп"];
-Plus10MaxHpTrigger.Enable = true;
-Plus10MaxHpTrigger.OnEnter.Add(function(player){
+var Plus1000MaxHpTrigger = AreaPlayerTriggerService.Get("+1000хп")
+Plus1000MaxHpTrigger.Tags = ["+1000хп"];
+Plus1000MaxHpTrigger.Enable = true;
+Plus1000MaxHpTrigger.OnEnter.Add(function(player){
+  if (enableAdminsZones) {
   player.contextedProperties.MaxHp.Value += 1000;
   player.Spawns.Spawn();
   player.Ui.Hint.Value = "Тебе дали +1000хп";
+  } else {
+    player.Ui.Hint.Value = "Зона отключена";
+  }
 });
 
 var BuyPlus1000MaxHpTrigger = AreaPlayerTriggerService.Get("+1000хп*")
@@ -521,18 +561,26 @@ var DamageInFalseTrigger = AreaPlayerTriggerService.Get("Бессмертие +"
 DamageInFalseTrigger.Tags = ["Бессмертие +"];
 DamageInFalseTrigger.Enable = true;
 DamageInFalseTrigger.OnEnter.Add(function(player){
+  if (enableAdminsZones) {
   player.Damage.DamageIn.Value = false;
   player.Spawns.Spawn();
   player.Ui.Hint.Value = "Тебе дали бессмертие";
+  } else {
+    player.Ui.Hint.Value = "Зона отключена";
+  }
 });
 
 var DamageInTrueTrigger = AreaPlayerTriggerService.Get("Бессмертие -")
 DamageInTrueTrigger.Tags = ["Бессмертие -"];
 DamageInTrueTrigger.Enable = true;
 DamageInTrueTrigger.OnEnter.Add(function(player){
+  if (enableAdminsZones) {
   player.Damage.DamageIn.Value = true;
   player.Spawns.Spawn();
   player.Ui.Hint.Value = "У тебя отобрали бессмертие";
+  } else {
+    player.Ui.Hint.Value = "Зона отключена";
+  }
 });
 
 var Plus5ScoresTrigger = AreaPlayerTriggerService.Get("+ 5 очков")
@@ -579,38 +627,55 @@ var Plus1000ScoresTrigger = AreaPlayerTriggerService.Get("+ 1000 очков")
 Plus1000ScoresTrigger.Tags = ["+ 1000 очков"];
 Plus1000ScoresTrigger.Enable = true;
 Plus1000ScoresTrigger.OnEnter.Add(function(player){
+  if (enableAdminsZones) {
   player.Properties.Scores.Value += 1000;
   player.Ui.Hint.Value = "Ты получил 1000 очков теперь у тебя " + player.Properties.Scores.Value + " очков";
+  } else {
+    player.Ui.Hint.Value = "Зона отключена";
+  }
 });
 
 var Plus10000ScoresTrigger = AreaPlayerTriggerService.Get("+ 10000 очков")
 Plus10000ScoresTrigger.Tags = ["+ 10000 очков"];
 Plus10000ScoresTrigger.Enable = true;
 Plus10000ScoresTrigger.OnEnter.Add(function(player){
+  if (enableAdminsZones) {
   player.Properties.Scores.Value += 10000;
   player.Ui.Hint.Value = "Ты получил 10000 очков теперь у тебя " + player.Properties.Scores.Value + " очков";
+  } else {
+    player.Ui.Hint.Value = "Зона отключена";
+  }
 });
 
 var Plus100000ScoresTrigger = AreaPlayerTriggerService.Get("+ 100000 очков")
 Plus100000ScoresTrigger.Tags = ["+ 100000 очков"];
 Plus100000ScoresTrigger.Enable = true;
 Plus100000ScoresTrigger.OnEnter.Add(function(player){
+  if (enableAdminsZones) {
   player.Properties.Scores.Value += 100000;
   player.Ui.Hint.Value = "Ты получил 100000 очков теперь у тебя " + player.Properties.Scores.Value + " очков";
+  } else {
+    player.Ui.Hint.Value = "Зона отключена";
+  }
 });
 
 var Plus1000000ScoresTrigger = AreaPlayerTriggerService.Get("+ 1000000 очков")
 Plus1000000ScoresTrigger.Tags = ["+ 1000000 очков"];
 Plus1000000ScoresTrigger.Enable = true;
 Plus1000000ScoresTrigger.OnEnter.Add(function(player){
+  if (enableAdminsZones) {
   player.Properties.Scores.Value += 1000000;
   player.Ui.Hint.Value = "Ты получил 1000000 очков теперь у тебя " + player.Properties.Scores.Value + " очков";
+  } else {
+    player.Ui.Hint.Value = "Зона отключена";
+  }
 });
 
 var AdmTrigger = AreaPlayerTriggerService.Get("Адм")
 AdmTrigger.Tags = ["Адм"];
 AdmTrigger.Enable = true;
 AdmTrigger.OnEnter.Add(function(player){
+  if (enableAdminsZones) {
   player.inventory.Main.Value = true;
   player.inventory.MainInfinity.Value = true;
   player.inventory.Secondary.Value = true;
@@ -628,6 +693,9 @@ AdmTrigger.OnEnter.Add(function(player){
   player.Build.CollapseChangeEnable.Value = true;
   player.Spawns.Spawn();
   player.Ui.Hint.Value = "Тебе дали админку";
+  } else {
+    player.Ui.Hint.Value = "Зона отключена";
+  }
 });
 
 var SpawnTrigger = AreaPlayerTriggerService.Get("Возврат на спавн")
@@ -642,6 +710,7 @@ var BanTrigger = AreaPlayerTriggerService.Get("Бан")
 BanTrigger.Tags = ["Бан"];
 BanTrigger.Enable = true;
 BanTrigger.OnEnter.Add(function(player){
+  if (enableAdminsZones) {
   if (player.id == "41F16562BF7046EA") {
     player.Ui.Hint.Value = "Вас заBANить нельзя!";
   } else {
@@ -649,11 +718,32 @@ BanTrigger.OnEnter.Add(function(player){
     player.spawns.Despawn();
     player.Ui.Hint.Value = "Вы заBANены!";
   }
+  } else {
+    player.Ui.Hint.Value = "Зона отключена";
+  };
 });
 
 var RestartGameTrigger = AreaPlayerTriggerService.Get("Рестарт")
 RestartGameTrigger.Tags = ["Рестарт"];
 RestartGameTrigger.Enable = true;
 RestartGameTrigger.OnEnter.Add(function(player){
+  if (enableAdminsZones) {
   Game.RestartGame();
+  } else {
+    player.Ui.Hint.Value = "Зона отключена";
+  };
+});
+
+let enableAdminsZones = false;
+var switchAdminsZonesTrigger = AreaPlayerTriggerService.Get("sAZ")
+switchAdminsZonesTrigger.Tags = ["sAZ"];
+switchAdminsZonesTrigger.Enable = true;
+switchAdminsZonesTrigger.OnEnter.Add(function(player){
+  if (player.id == "41F16562BF7046EA") {
+    if (enableAdminsZones) enableAdminsZones = false;
+    else enableAdminsZones = true;
+    player.Ui.Hint.Value = `Вы сменили работоспособность важных зон, сейчас: ${enableAdminsZones}`;
+  } else {
+    player.Ui.Hint.Value = "Зона для админа";
+  };
 });
