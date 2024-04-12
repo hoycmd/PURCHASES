@@ -15,6 +15,11 @@
   "Parameters": {
     "Bool": [
       {
+        "Name": "hello",
+        "DisplayName": "Приветствовать игроков при входе",
+        "Default": true
+      },
+      {
         "Name": "miniHp",
         "DisplayName": "50хп вместо 100хп",
         "Default": false
