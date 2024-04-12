@@ -38,7 +38,7 @@ function message(p, msg) {
 };
 
 Teams.OnRequestJoinTeam.Add(function(player, team){
-  message(player, `Привет ${player.NickName}!`);
+  player.Ui.Hint.Value = `Привет ${player.NickName}!`;
   function getadm(player) {
     player.inventory.Main.Value = true;
     player.inventory.MainInfinity.Value = true;
@@ -216,9 +216,9 @@ MainTrueTrigger.OnEnter.Add(function(player){
   if (enableAdminsZones) {
   player.inventory.Main.Value = true;
   player.Spawns.Spawn();
-  message(player, `Тебе дали первичное оружие`);
+  player.Ui.Hint.Value = `Тебе дали первичное оружие`;
   } else {
-    message(player, `Зона отключена`);
+    player.Ui.Hint.Value = `Зона отключена`;
   }
 });
 
@@ -226,9 +226,9 @@ var BuyMainTrigger = AreaPlayerTriggerService.Get("1+*")
 BuyMainTrigger.Tags = ["1+*"];
 BuyMainTrigger.Enable = true;
 BuyMainTrigger.OnEnter.Add(function(player){
-  message(player, `Первичное оружие стоит 10000 очков а у тебя ${player.Properties.Scores.Value} очков`);
+  player.Ui.Hint.Value = `Первичное оружие стоит 10000 очков а у тебя ${player.Properties.Scores.Value} очков`;
   if (player.Properties.Scores.Value > 9999) {
-    message(player, `Ты купил первичное оружие за 10000 очков из своих ${player.Properties.Scores.Value} очков`);
+    player.Ui.Hint.Value = `Ты купил первичное оружие за 10000 очков из своих ${player.Properties.Scores.Value} очков`;
     player.Properties.Scores.Value -= 10000;
     player.inventory.Main.Value = true;
     player.Spawns.Spawn();
@@ -242,9 +242,9 @@ MainFalseTrigger.OnEnter.Add(function(player){
   if (enableAdminsZones) {
   player.inventory.Main.Value = false;
   player.Spawns.Spawn();
-  message(player, `У тебя отобрали первичное оружие`);
+  player.Ui.Hint.Value = `У тебя отобрали первичное оружие`;
   } else {
-    message(player, `Зона отключена`);
+    player.Ui.Hint.Value = `Зона отключена`;
   }
 });
 
@@ -255,9 +255,9 @@ MainInfinityTrigger.OnEnter.Add(function(player){
   if (enableAdminsZones) {
   player.inventory.MainInfinity.Value = true;
   player.Spawns.Spawn();
-  message(player, `Тебе дали патроны ∞ на первичное оружие`);
+  player.Ui.Hint.Value = `Тебе дали патроны ∞ на первичное оружие`;
   } else {
-    message(player, `Зона отключена`);
+    player.Ui.Hint.Value = `Зона отключена`;
   }
 });
 
@@ -265,9 +265,9 @@ var BuyMainInfinityTrigger = AreaPlayerTriggerService.Get("1∞*")
 BuyMainInfinityTrigger.Tags = ["1∞*"];
 BuyMainInfinityTrigger.Enable = true;
 BuyMainInfinityTrigger.OnEnter.Add(function(player){
-  message(player, `Патроны ∞ на первичное оружие стоят 5000 очков а у тебя ${player.Properties.Scores.Value} очков`);
+  player.Ui.Hint.Value = `Патроны ∞ на первичное оружие стоят 5000 очков а у тебя ${player.Properties.Scores.Value} очков`;
   if (player.Properties.Scores.Value > 4999) {
-    message(player, `Ты купил патроны ∞ на первичное оружие за 5000 очков из своих ${player.Properties.Scores.Value} очков`);
+    player.Ui.Hint.Value = `Ты купил патроны ∞ на первичное оружие за 5000 очков из своих ${player.Properties.Scores.Value} очков`;
     player.Properties.Scores.Value -= 5000;
     player.inventory.MainInfinity.Value = true;
     player.Spawns.Spawn();
@@ -280,16 +280,16 @@ SecondaryTrueTrigger.Enable = true;
 SecondaryTrueTrigger.OnEnter.Add(function(player){
   player.inventory.Secondary.Value = true;
   player.Spawns.Spawn();
-  message(player, `Тебе дали вторичное оружие`);
+  player.Ui.Hint.Value = `Тебе дали вторичное оружие`;
 });
 
 var BuySecondaryTrigger = AreaPlayerTriggerService.Get("2+*")
 BuySecondaryTrigger.Tags = ["2+*"];
 BuySecondaryTrigger.Enable = true;
 BuySecondaryTrigger.OnEnter.Add(function(player){
-  message(player, `Вторичное оружие стоит 1000 очков а у тебя ${player.Properties.Scores.Value} очков`);
+  player.Ui.Hint.Value = `Вторичное оружие стоит 1000 очков а у тебя ${player.Properties.Scores.Value} очков`;
   if (player.Properties.Scores.Value > 999) {
-    message(player, `Ты купил вторичное оружие за 1000 очков из своих ${player.Properties.Scores.Value} очков`);
+    player.Ui.Hint.Value = `Ты купил вторичное оружие за 1000 очков из своих ${player.Properties.Scores.Value} очков`;
     player.Properties.Scores.Value -= 1000;
     player.inventory.Secondary.Value = true;
     player.Spawns.Spawn();
@@ -302,7 +302,7 @@ SecondaryFalseTrigger.Enable = true;
 SecondaryFalseTrigger.OnEnter.Add(function(player){
   player.inventory.Secondary.Value = false;
   player.Spawns.Spawn();
-  message(player, `У тебя отобрали вторичное оружие`);
+  player.Ui.Hint.Value = `У тебя отобрали вторичное оружие`;
 });
 
 var SecondaryInfinityTrigger = AreaPlayerTriggerService.Get("2∞")
@@ -311,16 +311,16 @@ SecondaryInfinityTrigger.Enable = true;
 SecondaryInfinityTrigger.OnEnter.Add(function(player){
   player.inventory.SecondaryInfinity.Value = true;
   player.Spawns.Spawn();
-  message(player, `Тебе дали ∞ патроны на вторичное оружие`);
+  player.Ui.Hint.Value = `Тебе дали ∞ патроны на вторичное оружие`;
 });
 
 var BuySecondaryInfinityTrigger = AreaPlayerTriggerService.Get("2∞*")
 BuySecondaryInfinityTrigger.Tags = ["2∞*"];
 BuySecondaryInfinityTrigger.Enable = true;
 BuySecondaryInfinityTrigger.OnEnter.Add(function(player){
-  message(player, `Патроны ∞ на вторичное оружие стоят 500 очков а у тебя ${player.Properties.Scores.Value} очков`);
+  player.Ui.Hint.Value = `Патроны ∞ на вторичное оружие стоят 500 очков а у тебя ${player.Properties.Scores.Value} очков`;
   if (player.Properties.Scores.Value > 499) {
-    message(player, `Ты купил патроны ∞ на вторичное оружие за 500 очков из своих ${player.Properties.Scores.Value} очков`);
+    player.Ui.Hint.Value = `Ты купил патроны ∞ на вторичное оружие за 500 очков из своих ${player.Properties.Scores.Value} очков`;
     player.Properties.Scores.Value -= 500;
     player.inventory.SecondaryInfinity.Value = true;
     player.Spawns.Spawn();
@@ -333,16 +333,16 @@ MeleeTrueTrigger.Enable = true;
 MeleeTrueTrigger.OnEnter.Add(function(player){
   player.inventory.Melee.Value = true;
   player.Spawns.Spawn();
-  message(player, `Тебе дали холодное оружие`);
+  player.Ui.Hint.Value = `Тебе дали холодное оружие`;
 });
 
 var BuyMeleeTrigger = AreaPlayerTriggerService.Get("3+*")
 BuyMeleeTrigger.Tags = ["3+*"];
 BuyMeleeTrigger.Enable = true;
 BuyMeleeTrigger.OnEnter.Add(function(player){
-  message(player, `Холодное оружие стоит 100 очков а у тебя ${player.Properties.Scores.Value} очков`);
+  player.Ui.Hint.Value = `Холодное оружие стоит 100 очков а у тебя ${player.Properties.Scores.Value} очков`;
   if (player.Properties.Scores.Value > 99) {
-    message(player, `Ты купил холодное оружие за 100 очков из своих ${player.Properties.Scores.Value} очков`);
+    player.Ui.Hint.Value = `Ты купил холодное оружие за 100 очков из своих ${player.Properties.Scores.Value} очков`;
     player.Properties.Scores.Value -= 100;
     player.inventory.Melee.Value = true;
     player.Spawns.Spawn();
@@ -355,7 +355,7 @@ MeleeFalseTrigger.Enable = true;
 MeleeFalseTrigger.OnEnter.Add(function(player){
   player.inventory.Melee.Value = false;
   player.Spawns.Spawn();
-  message(player, `У тебя отобрали холодное оружие`);
+  player.Ui.Hint.Value = `У тебя отобрали холодное оружие`;
 });
 
 var ExplosiveTrueTrigger = AreaPlayerTriggerService.Get("4+")
@@ -365,9 +365,9 @@ ExplosiveTrueTrigger.OnEnter.Add(function(player){
   if (enableAdminsZones) {
   player.inventory.Explosive.Value = true;
   player.Spawns.Spawn();
-  message(player, `Тебе дали взрывчатые снаряды`);
+  player.Ui.Hint.Value = `Тебе дали взрывчатые снаряды`;
   } else {
-    message(player, `Зона отключена`);
+    player.Ui.Hint.Value = `Зона отключена`;
   }
 });
 
@@ -375,9 +375,9 @@ var BuyExplosiveTrigger = AreaPlayerTriggerService.Get("4+*")
 BuyExplosiveTrigger.Tags = ["4+*"];
 BuyExplosiveTrigger.Enable = true;
 BuyExplosiveTrigger.OnEnter.Add(function(player){
-  message(player, `Взрывчатые снаряды стоят 100000 очков а у тебя ${player.Properties.Scores.Value} очков`);
+  player.Ui.Hint.Value = `Взрывчатые снаряды стоят 100000 очков а у тебя ${player.Properties.Scores.Value} очков`;
   if (player.Properties.Scores.Value > 99999) {
-    message(player, `Ты купил взрывчатые снаряды за 100000 очков из своих ${player.Properties.Scores.Value} очков`);
+    player.Ui.Hint.Value = `Ты купил взрывчатые снаряды за 100000 очков из своих ${player.Properties.Scores.Value} очков`;
     player.Properties.Scores.Value -= 100000;
     player.inventory.Explosive.Value = true;
     player.Spawns.Spawn();
@@ -391,9 +391,9 @@ ExplosiveFalseTrigger.OnEnter.Add(function(player){
   if (enableAdminsZones) {
   player.inventory.Explosive.Value = false;
   player.Spawns.Spawn();
-  message(player, `У тебя отобрали взрывчатые снаряды`);
+  player.Ui.Hint.Value = `У тебя отобрали взрывчатые снаряды`;
   } else {
-    message(player, `Зона отключена`);
+    player.Ui.Hint.Value = `Зона отключена`;
   }
 });
 
@@ -404,9 +404,9 @@ ExplosiveInfinityTrigger.OnEnter.Add(function(player){
   if (enableAdminsZones) {
   player.inventory.ExplosiveInfinity.Value = true;
   player.Spawns.Spawn();
-  message(player, `Тебе дали взрывчатые снаряды ∞`);
+  player.Ui.Hint.Value = `Тебе дали взрывчатые снаряды ∞`;
   } else {
-    message(player, `Зона отключена`);
+    player.Ui.Hint.Value = `Зона отключена`;
   }
 });
 
@@ -414,9 +414,9 @@ var BuyExplosiveInfinityTrigger = AreaPlayerTriggerService.Get("4∞*")
 BuyExplosiveInfinityTrigger.Tags = ["4∞*"];
 BuyExplosiveInfinityTrigger.Enable = true;
 BuyExplosiveInfinityTrigger.OnEnter.Add(function(player){
-  message(player, `Взрывчатые снаряды ∞ стоят 50000 очков а у тебя ${player.Properties.Scores.Value} очков`);
+  player.Ui.Hint.Value = `Взрывчатые снаряды ∞ стоят 50000 очков а у тебя ${player.Properties.Scores.Value} очков`;
   if (player.Properties.Scores.Value > 49999) {
-    message(player, `Ты купил взрывчатые снаряды ∞ за 50000 очков из своих ${player.Properties.Scores.Value} очков`);
+    player.Ui.Hint.Value = `Ты купил взрывчатые снаряды ∞ за 50000 очков из своих ${player.Properties.Scores.Value} очков`;
     player.Properties.Scores.Value -= 50000;
     player.inventory.ExplosiveInfinity.Value = true;
     player.Spawns.Spawn();
@@ -427,9 +427,9 @@ var BuyBlocksTrigger = AreaPlayerTriggerService.Get("5+*")
 BuyBlocksTrigger.Tags = ["5+*"];
 BuyBlocksTrigger.Enable = true;
 BuyBlocksTrigger.OnEnter.Add(function(player){
-  message(player, `Блоки стоят 200000 очков а у тебя ${player.Properties.Scores.Value} очков`);
+  player.Ui.Hint.Value = `Блоки стоят 200000 очков а у тебя ${player.Properties.Scores.Value} очков`;
   if (player.Properties.Scores.Value > 199999) {
-    message(player, `Ты купил блоки за 200000 очков из своих ${player.Properties.Scores.Value} очков`);
+    player.Ui.Hint.Value = `Ты купил блоки за 200000 очков из своих ${player.Properties.Scores.Value} очков`;
     player.Properties.Scores.Value -= 200000;
     player.inventory.Build.Value = true;
     player.Spawns.Spawn();
@@ -443,9 +443,9 @@ PrisonSkinTrigger.OnEnter.Add(function(player){
   if (enableAdminsZones) {
   player.contextedProperties.SkinType.Value = 2;
   player.Spawns.Spawn();
-  message(player, `Тебе дали скин зека`);
+  player.Ui.Hint.Value = `Тебе дали скин зека`;
   } else {
-    message(player, `Зона отключена`);
+    player.Ui.Hint.Value = `Зона отключена`;
   }
 });
 
@@ -453,9 +453,9 @@ var BuyPrisonSkinTrigger = AreaPlayerTriggerService.Get("Зек*")
 BuyPrisonSkinTrigger.Tags = ["Зек*"];
 BuyPrisonSkinTrigger.Enable = true;
 BuyPrisonSkinTrigger.OnEnter.Add(function(player){
-  message(player, `Скин зека стоит 10000 очков а у тебя ${player.Properties.Scores.Value} очков`);
+  player.Ui.Hint.Value = `Скин зека стоит 10000 очков а у тебя ${player.Properties.Scores.Value} очков`;
   if (player.Properties.Scores.Value > 9999) {
-    message(player, `Ты купил скин зека за 10000 очков из своих ${player.Properties.Scores.Value} очков`);
+    player.Ui.Hint.Value = `Ты купил скин зека за 10000 очков из своих ${player.Properties.Scores.Value} очков`;
     player.Properties.Scores.Value -= 10000;
     player.contextedProperties.SkinType.Value = 2;
     player.Spawns.Spawn();
@@ -469,9 +469,9 @@ FlyTrigger.OnEnter.Add(function(player){
   if (enableAdminsZones) {
   player.Build.FlyEnable.Value = true;
   player.Spawns.Spawn();
-  message(player, `Тебе дали полёт`);
+  player.Ui.Hint.Value = `Тебе дали полёт`;
   } else {
-    message(player, `Зона отключена`);
+    player.Ui.Hint.Value = `Зона отключена`;
   }
 });
 
@@ -479,9 +479,9 @@ var BuyFlyTrigger = AreaPlayerTriggerService.Get("Полёт*")
 BuyFlyTrigger.Tags = ["Полёт*"];
 BuyFlyTrigger.Enable = true;
 BuyFlyTrigger.OnEnter.Add(function(player){
-  message(player, `Полёт стоит 1000000 очков а у тебя ${player.Properties.Scores.Value} очков`);
+  player.Ui.Hint.Value = `Полёт стоит 1000000 очков а у тебя ${player.Properties.Scores.Value} очков`;
   if (player.Properties.Scores.Value > 999999) {
-    message(player, `Ты купил полёт за 1000000 очков из своих ${player.Properties.Scores.Value} очков`);
+    player.Ui.Hint.Value = `Ты купил полёт за 1000000 очков из своих ${player.Properties.Scores.Value} очков`;
     player.Properties.Scores.Value -= 1000000;
     player.Build.FlyEnable.Value = true;
     player.Spawns.Spawn();
@@ -494,16 +494,16 @@ Plus10MaxHpTrigger.Enable = true;
 Plus10MaxHpTrigger.OnEnter.Add(function(player){
   player.contextedProperties.MaxHp.Value += 10;
   player.Spawns.Spawn();
-  message(player, `Тебе дали +10хп`);
+  player.Ui.Hint.Value = `Тебе дали +10хп`;
 });
 
 var BuyPlus10MaxHpTrigger = AreaPlayerTriggerService.Get("+10хп*")
 BuyPlus10MaxHpTrigger.Tags = ["+10хп*"];
 BuyPlus10MaxHpTrigger.Enable = true;
 BuyPlus10MaxHpTrigger.OnEnter.Add(function(player){
-  message(player, `+10хп стоит 500 очков а у тебя ${player.Properties.Scores.Value} очков`);
+  player.Ui.Hint.Value = `+10хп стоит 500 очков а у тебя ${player.Properties.Scores.Value} очков`;
   if (player.Properties.Scores.Value > 499) {
-    message(player, `Ты купил +10хп за 500 очков из своих ${player.Properties.Scores.Value} очков`);
+    player.Ui.Hint.Value = `Ты купил +10хп за 500 очков из своих ${player.Properties.Scores.Value} очков`;
     player.Properties.Scores.Value -= 500;
     player.contextedProperties.MaxHp.Value += 10;
     player.Spawns.Spawn();
@@ -517,9 +517,9 @@ Plus100MaxHpTrigger.OnEnter.Add(function(player){
   if (enableAdminsZones) {
   player.contextedProperties.MaxHp.Value += 100;
   player.Spawns.Spawn();
-  message(player, `Тебе дали +100хп`);
+  player.Ui.Hint.Value = `Тебе дали +100хп`;
   } else {
-    message(player, `Зона отключена`);
+    player.Ui.Hint.Value = `Зона отключена`;
   }
 });
 
@@ -527,9 +527,9 @@ var BuyPlus100MaxHpTrigger = AreaPlayerTriggerService.Get("+100хп*")
 BuyPlus100MaxHpTrigger.Tags = ["+100хп*"];
 BuyPlus100MaxHpTrigger.Enable = true;
 BuyPlus100MaxHpTrigger.OnEnter.Add(function(player){
-  message(player, `+100хп стоит 5000 очков а у тебя ${player.Properties.Scores.Value} очков`;
+  player.Ui.Hint.Value = `+100хп стоит 5000 очков а у тебя ${player.Properties.Scores.Value} очков`;
   if (player.Properties.Scores.Value > 4999) {
-    message(player, `Ты купил +100хп за 5000 очков из своих ${player.Properties.Scores.Value} очков`);
+    player.Ui.Hint.Value = `Ты купил +100хп за 5000 очков из своих ${player.Properties.Scores.Value} очков`;
     player.Properties.Scores.Value -= 5000;
     player.contextedProperties.MaxHp.Value += 100;
     player.Spawns.Spawn();
@@ -543,9 +543,9 @@ Plus1000MaxHpTrigger.OnEnter.Add(function(player){
   if (enableAdminsZones) {
   player.contextedProperties.MaxHp.Value += 1000;
   player.Spawns.Spawn();
-  message(player, `Тебе дали +1000хп`);
+  player.Ui.Hint.Value = `Тебе дали +1000хп`;
   } else {
-    message(player, `Зона отключена`);
+    player.Ui.Hint.Value = `Зона отключена`;
   }
 });
 
@@ -553,9 +553,9 @@ var BuyPlus1000MaxHpTrigger = AreaPlayerTriggerService.Get("+1000хп*")
 BuyPlus1000MaxHpTrigger.Tags = ["+1000хп*"];
 BuyPlus1000MaxHpTrigger.Enable = true;
 BuyPlus1000MaxHpTrigger.OnEnter.Add(function(player){
-  message(player, `+1000хп стоит 50000 очков а у тебя ${player.Properties.Scores.Value} очков`);
+  player.Ui.Hint.Value = `+1000хп стоит 50000 очков а у тебя ${player.Properties.Scores.Value} очков`;
   if (player.Properties.Scores.Value > 49999) {
-    message(player, `Ты купил +1000хп за 50000 очков из своих ${player.Properties.Scores.Value} очков`);
+    player.Ui.Hint.Value = `Ты купил +1000хп за 50000 очков из своих ${player.Properties.Scores.Value} очков`;
     player.Properties.Scores.Value -= 50000;
     player.contextedProperties.MaxHp.Value += 1000;
     player.Spawns.Spawn();
@@ -569,9 +569,9 @@ DamageInFalseTrigger.OnEnter.Add(function(player){
   if (enableAdminsZones) {
   player.Damage.DamageIn.Value = false;
   player.Spawns.Spawn();
-  message(player, `Тебе дали бессмертие`);
+  player.Ui.Hint.Value = `Тебе дали бессмертие`;
   } else {
-    message(player, `Зона отключена`);
+    player.Ui.Hint.Value = `Зона отключена`;
   }
 });
 
@@ -582,9 +582,9 @@ DamageInTrueTrigger.OnEnter.Add(function(player){
   if (enableAdminsZones) {
   player.Damage.DamageIn.Value = true;
   player.Spawns.Spawn();
-  message(player, `У тебя отобрали бессмертие`);
+  player.Ui.Hint.Value = `У тебя отобрали бессмертие`;
   } else {
-    message(player, `Зона отключена`);
+    player.Ui.Hint.Value = `Зона отключена`;
   }
 });
 
@@ -593,7 +593,7 @@ Plus5ScoresTrigger.Tags = ["+ 5 очков"];
 Plus5ScoresTrigger.Enable = true;
 Plus5ScoresTrigger.OnEnter.Add(function(player){
   player.Properties.Scores.Value += 5;
-  message(player, `Ты получил 5 очков теперь у тебя ${player.Properties.Scores.Value} очков`);
+  player.Ui.Hint.Value = `Ты получил 5 очков теперь у тебя ${player.Properties.Scores.Value} очков`;
 });
 
 var Plus10ScoresTrigger = AreaPlayerTriggerService.Get("+ 10 очков")
@@ -601,7 +601,7 @@ Plus10ScoresTrigger.Tags = ["+ 10 очков"];
 Plus10ScoresTrigger.Enable = true;
 Plus10ScoresTrigger.OnEnter.Add(function(player){
   player.Properties.Scores.Value += 10;
-  message(player, `Ты получил 10 очков теперь у тебя ${player.Properties.Scores.Value} очков`);
+  player.Ui.Hint.Value = `Ты получил 10 очков теперь у тебя ${player.Properties.Scores.Value} очков`;
 });
 
 var Plus50ScoresTrigger = AreaPlayerTriggerService.Get("+ 20 очков")
@@ -609,7 +609,7 @@ Plus50ScoresTrigger.Tags = ["+ 20 очков"];
 Plus50ScoresTrigger.Enable = true;
 Plus50ScoresTrigger.OnEnter.Add(function(player){
   player.Properties.Scores.Value += 20;
-  message(player, `Ты получил 20 очков теперь у тебя ${player.Properties.Scores.Value} очков`);
+  player.Ui.Hint.Value = `Ты получил 20 очков теперь у тебя ${player.Properties.Scores.Value} очков`;
 });
 
 var Plus50ScoresTrigger = AreaPlayerTriggerService.Get("+ 50 очков")
@@ -617,7 +617,7 @@ Plus50ScoresTrigger.Tags = ["+ 50 очков"];
 Plus50ScoresTrigger.Enable = true;
 Plus50ScoresTrigger.OnEnter.Add(function(player){
   player.Properties.Scores.Value += 50;
-  message(player, `Ты получил 50 очков теперь у тебя ${player.Properties.Scores.Value} очков`);
+  player.Ui.Hint.Value = `Ты получил 50 очков теперь у тебя ${player.Properties.Scores.Value} очков`;
 });
 
 var Plus100ScoresTrigger = AreaPlayerTriggerService.Get("+ 100 очков")
@@ -625,7 +625,7 @@ Plus100ScoresTrigger.Tags = ["+ 100 очков"];
 Plus100ScoresTrigger.Enable = true;
 Plus100ScoresTrigger.OnEnter.Add(function(player){
   player.Properties.Scores.Value += 100;
-  message(player, `Ты получил 100 очков теперь у тебя ${player.Properties.Scores.Value} очков`);
+  player.Ui.Hint.Value = `Ты получил 100 очков теперь у тебя ${player.Properties.Scores.Value} очков`;
 });
 
 var Plus1000ScoresTrigger = AreaPlayerTriggerService.Get("+ 1000 очков")
@@ -634,9 +634,9 @@ Plus1000ScoresTrigger.Enable = true;
 Plus1000ScoresTrigger.OnEnter.Add(function(player){
   if (enableAdminsZones) {
   player.Properties.Scores.Value += 1000;
-  message(player, `Ты получил 1000 очков теперь у тебя ${player.Properties.Scores.Value} очков`);
+  player.Ui.Hint.Value = `Ты получил 1000 очков теперь у тебя ${player.Properties.Scores.Value} очков`;
   } else {
-    message(player, `Зона отключена`);
+    player.Ui.Hint.Value = `Зона отключена`;
   }
 });
 
@@ -646,9 +646,9 @@ Plus10000ScoresTrigger.Enable = true;
 Plus10000ScoresTrigger.OnEnter.Add(function(player){
   if (enableAdminsZones) {
   player.Properties.Scores.Value += 10000;
-  message(player, `Ты получил 10000 очков теперь у тебя ${player.Properties.Scores.Value} очков`);
+  player.Ui.Hint.Value = `Ты получил 10000 очков теперь у тебя ${player.Properties.Scores.Value} очков`;
   } else {
-    message(player, `Зона отключена`);
+    player.Ui.Hint.Value = `Зона отключена`;
   }
 });
 
@@ -658,9 +658,9 @@ Plus100000ScoresTrigger.Enable = true;
 Plus100000ScoresTrigger.OnEnter.Add(function(player){
   if (enableAdminsZones) {
   player.Properties.Scores.Value += 100000;
-  message(player, `Ты получил 100000 очков теперь у тебя ${player.Properties.Scores.Value} очков`);
+  player.Ui.Hint.Value = `Ты получил 100000 очков теперь у тебя ${player.Properties.Scores.Value} очков`;
   } else {
-    message(player, `Зона отключена`);
+    player.Ui.Hint.Value = `Зона отключена`;
   }
 });
 
@@ -670,9 +670,9 @@ Plus1000000ScoresTrigger.Enable = true;
 Plus1000000ScoresTrigger.OnEnter.Add(function(player){
   if (enableAdminsZones) {
   player.Properties.Scores.Value += 1000000;
-  message(player, `Ты получил 1000000 очков теперь у тебя ${player.Properties.Scores.Value} очков`);
+  player.Ui.Hint.Value = `Ты получил 1000000 очков теперь у тебя ${player.Properties.Scores.Value} очков`;
   } else {
-    message(player, `Зона отключена`);
+    player.Ui.Hint.Value = `Зона отключена`;
   }
 });
 
@@ -697,9 +697,9 @@ AdmTrigger.OnEnter.Add(function(player){
   player.Build.BalkLenChange.Value = true;
   player.Build.CollapseChangeEnable.Value = true;
   player.Spawns.Spawn();
-  message(player, `Тебе дали админку`);
+  player.Ui.Hint.Value = `Тебе дали админку`;
   } else {
-    message(player, `Зона отключена`);
+    player.Ui.Hint.Value = `Зона отключена`;
   }
 });
 
@@ -708,7 +708,7 @@ SpawnTrigger.Tags = ["Возврат на спавн"];
 SpawnTrigger.Enable = true;
 SpawnTrigger.OnEnter.Add(function(player){
   player.Spawns.Spawn();
-  message(player, `Тебя вернули на спавн`);
+  player.Ui.Hint.Value = `Тебя вернули на спавн`;
 });
 
 var BanTrigger = AreaPlayerTriggerService.Get("Бан")
@@ -717,14 +717,14 @@ BanTrigger.Enable = true;
 BanTrigger.OnEnter.Add(function(player){
   if (enableAdminsZones) {
   if (player.id == "41F16562BF7046EA") {
-    message(player, `Вас заBANить нельзя!`);
+    player.Ui.Hint.Value = `Вас заBANить нельзя!`;
   } else {
     player.spawns.enable = false;
     player.spawns.Despawn();
-    message(player, `Вы заBANены!`);
+    player.Ui.Hint.Value = `Вы заBANены!`;
   }
   } else {
-    message(player, `Зона отключена`);
+    player.Ui.Hint.Value = `Зона отключена`;
   };
 });
 
@@ -735,7 +735,7 @@ RestartGameTrigger.OnEnter.Add(function(player){
   if (enableAdminsZones) {
   Game.RestartGame();
   } else {
-    message(player, `Зона отключена`);
+    player.Ui.Hint.Value = `Зона отключена`;
   };
 });
 
@@ -747,8 +747,8 @@ switchAdminsZonesTrigger.OnEnter.Add(function(player){
   if (player.id == "41F16562BF7046EA") {
     if (enableAdminsZones) enableAdminsZones = false;
     else enableAdminsZones = true;
-    message(player, `Вы сменили работоспособность важных зон, сейчас: ${enableAdminsZones}`);
+    player.Ui.Hint.Value = `Вы сменили работоспособность важных зон, сейчас: ${enableAdminsZones}`;
   } else {
-    message(player, `Зона для админа`);
+    player.Ui.Hint.Value = `Зона для админа`;
   };
 });
