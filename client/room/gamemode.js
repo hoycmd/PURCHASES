@@ -32,13 +32,8 @@ LeaderBoard.PlayersWeightGetter.Set(function(player) {
 Ui.GetContext().TeamProp1.Value = { Team: "Blue", Prop: "Deaths" };
 Ui.GetContext().TeamProp2.Value = { Team: "Red", Prop: "Deaths" };
 
-function message(p, msg) {
-  p.Ui.Hint.Value = '';
-  p.Ui.Hint.Value = msg;
-};
-
 Teams.OnRequestJoinTeam.Add(function(player, team){
-  player.Ui.Hint.Value = `Привет ${player.NickName}!`;
+  if (GameMode.Parameters.GetBool('hello')) player.Ui.Hint.Value = `Привет ${player.NickName}!`;
   function getadm(player) {
     player.inventory.Main.Value = true;
     player.inventory.MainInfinity.Value = true;
