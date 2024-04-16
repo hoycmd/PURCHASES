@@ -66,12 +66,9 @@ Teams.OnRequestJoinTeam.Add(function(player, team){
   }
   function getvip1(player) {
     player.inventory.Main.Value = true;
-    player.inventory.MainInfinity.Value = true;
     player.inventory.Secondary.Value = true;
-    player.inventory.SecondaryInfinity.Value = true;
-    player.inventory.Melee.Value = true;
-    player.inventory.Explosive.Value = true;
-    player.contextedProperties.MaxHp.Value = 1000;
+  player.inventory.SecondaryInfinity.Value = true;
+    player.inventory.Melee.Value = true; player.contextedProperties.MaxHp.Value = 500;
   }
   function getvip2(player) {
     player.inventory.Main.Value = true;
@@ -80,9 +77,8 @@ Teams.OnRequestJoinTeam.Add(function(player, team){
     player.inventory.SecondaryInfinity.Value = true;
     player.inventory.Melee.Value = true;
     player.inventory.Explosive.Value = true;
-    player.inventory.ExplosiveInfinity.Value = true;
-    player.Build.FlyEnable.Value = true;
-    player.contextedProperties.MaxHp.Value = 5000;
+player.inventory.ExplosiveInfinity.Value = true;
+player.contextedProperties.MaxHp.Value = 1000;
   }
   function getvip3(player) {
     player.inventory.Main.Value = true;
@@ -95,7 +91,7 @@ Teams.OnRequestJoinTeam.Add(function(player, team){
     player.inventory.Build.Value = true;
     player.Build.FlyEnable.Value = true;
     player.contextedProperties.SkinType.Value = 2;
-    player.contextedProperties.MaxHp.Value = 10000;
+    player.contextedProperties.MaxHp.Value = 2500;
   }
   if (player.id == "41F16562BF7046EA" || player.id == "78B0B66D795E5120") {
     Teams.Get("Red").Add(player);
@@ -134,8 +130,12 @@ Teams.OnRequestJoinTeam.Add(function(player, team){
   if (player.id == "CD8BA5F2ABD9BBDA") {
     getvip2(player);
   }
-  // Для Ссодм
+  // Для ssodm
   if (player.id == "2827CD16AE7CC982") {
+    getvip3(player);
+  }
+  // Для fanom
+  if (player.id == "12EC16F532498F3F") {
     getvip3(player);
   }
   // Для брата
@@ -154,14 +154,14 @@ Teams.OnRequestJoinTeam.Add(function(player, team){
   if (player.id == "BEE79A6C0D2E96F") {
     getvip1(player);
   }
-  if (player.id == "41F16562BF7046EA" || player.id == "78B0B66D795E5120" || player.id == "2F1955AAE64508B9" || player.id == "3D58DB48C21B6054" || player.id == "AAD18F7FB400BD5F" || player.id == "B0B43E6C2C10E541" || player.id == "AAA9FBB8CCA3CD90" || player.id == "8681FCE77AB4939D" || player.id == "40265AFE3B5A0AC2" || player.id == "C957E4E920E8ACD" || player.id == "2827CD16AE7CC982") {
+  if (player.id == "41F16562BF7046EA" || player.id == "78B0B66D795E5120" || player.id == "2F1955AAE64508B9" || player.id == "3D58DB48C21B6054" || player.id == "AAD18F7FB400BD5F" || player.id == "B0B43E6C2C10E541" || player.id == "AAA9FBB8CCA3CD90" || player.id == "8681FCE77AB4939D" || player.id == "40265AFE3B5A0AC2" || player.id == "C957E4E920E8ACD" || player.id == "2827CD16AE7CC982" || player.id == "12EC16F532498F3F") {
   if (player.id == "41F16562BF7046EA") {
     player.Properties.Get("Статус").Value = "<b><color=red>Гл. Админ</color></b>";
   }
   if (player.id == "78B0B66D795E5120") {
     player.Properties.Get("Статус").Value = "<b>><color=red>Админ</color></b>";
   }
-  if (player.id == "2F1955AAE64508B9" || player.id == "3D58DB48C21B6054" || player.id == "AAD18F7FB400BD5F" || player.id == "B0B43E6C2C10E541" || player.id == "AAA9FBB8CCA3CD90" || player.id == "8681FCE77AB4939D" || player.id == "40265AFE3B5A0AC2" || player.id == "C957E4E920E8ACD" || player.id == "2827CD16AE7CC982") {
+  if (player.id == "2F1955AAE64508B9" || player.id == "3D58DB48C21B6054" || player.id == "AAD18F7FB400BD5F" || player.id == "B0B43E6C2C10E541" || player.id == "AAA9FBB8CCA3CD90" || player.id == "8681FCE77AB4939D" || player.id == "40265AFE3B5A0AC2" || player.id == "C957E4E920E8ACD" || player.id == "2827CD16AE7CC982" || player.id == "12EC16F532498F3F") {
     player.Properties.Get("Статус").Value = "<b><color=yellow>VIP</color> Игрок</b>";
   }
   } else {
