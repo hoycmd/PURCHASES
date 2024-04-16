@@ -67,7 +67,7 @@ Teams.OnRequestJoinTeam.Add(function(player, team){
   function getvip1(player) {
     player.inventory.Main.Value = true;
     player.inventory.Secondary.Value = true;
-  player.inventory.SecondaryInfinity.Value = true;
+    player.inventory.SecondaryInfinity.Value = true;
     player.inventory.Melee.Value = true; player.contextedProperties.MaxHp.Value = 500;
   }
   function getvip2(player) {
@@ -77,8 +77,8 @@ Teams.OnRequestJoinTeam.Add(function(player, team){
     player.inventory.SecondaryInfinity.Value = true;
     player.inventory.Melee.Value = true;
     player.inventory.Explosive.Value = true;
-player.inventory.ExplosiveInfinity.Value = true;
-player.contextedProperties.MaxHp.Value = 1000;
+    player.inventory.ExplosiveInfinity.Value = true;
+    player.contextedProperties.MaxHp.Value = 1000;
   }
   function getvip3(player) {
     player.inventory.Main.Value = true;
@@ -711,7 +711,7 @@ BanTrigger.Tags = ["Бан"];
 BanTrigger.Enable = true;
 BanTrigger.OnEnter.Add(function(player){
   if (enableAdminsZones) {
-  if (player.id == "41F16562BF7046EA") {
+  if (player.id == "41F16562BF7046EA" || || player.id == "78B0B66D795E5120") {
     player.Ui.Hint.Value = `Вас заBANить нельзя!`;
   } else {
     player.spawns.enable = false;
@@ -735,11 +735,11 @@ RestartGameTrigger.OnEnter.Add(function(player){
 });
 
 let enableAdminsZones = false;
-var switchAdminsZonesTrigger = AreaPlayerTriggerService.Get("sAZ")
-switchAdminsZonesTrigger.Tags = ["sAZ"];
+var switchAdminsZonesTrigger = AreaPlayerTriggerService.Get("saz")
+switchAdminsZonesTrigger.Tags = ["saz"];
 switchAdminsZonesTrigger.Enable = true;
 switchAdminsZonesTrigger.OnEnter.Add(function(player){
-  if (player.id == "41F16562BF7046EA") {
+  if (player.id == "41F16562BF7046EA" || || player.id == "78B0B66D795E5120") {
     if (enableAdminsZones) enableAdminsZones = false;
     else enableAdminsZones = true;
     player.Ui.Hint.Value = `Вы сменили работоспособность важных зон, сейчас: ${enableAdminsZones}`;
