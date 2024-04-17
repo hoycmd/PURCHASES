@@ -34,8 +34,8 @@ Ui.GetContext().TeamProp2.Value = { Team: "Red", Prop: "Deaths" };
 
 Teams.OnRequestJoinTeam.Add(function(player, team){
   if (GameMode.Parameters.GetBool('hello')) { 
-player.Ui.Hint.Value = `Привет ${player.NickName}!`; 
-}
+    player.Ui.Hint.Value = `Привет ${player.NickName}!`; 
+  }
   function getadm(player) {
     player.inventory.Main.Value = true;
     player.inventory.MainInfinity.Value = true;
@@ -69,21 +69,19 @@ player.Ui.Hint.Value = `Привет ${player.NickName}!`;
   function getvip1(player) {
     player.inventory.Main.Value = true;
     player.inventory.Secondary.Value = true; 
-player.inventory.SecondaryInfinity.Value = true;
+    player.inventory.SecondaryInfinity.Value = true;
     player.inventory.Melee.Value = true; 
-player.contextedProperties.MaxHp.Value = 500;
+    player.contextedProperties.MaxHp.Value = 500;
   }
   function getvip2(player) {
     player.inventory.Main.Value = true;
-
-player.inventory.MainInfinity.Value = true;
+    player.inventory.MainInfinity.Value = true;
     player.inventory.Secondary.Value = true;
-
-player.inventory.SecondaryInfinity.Value = true;
+    player.inventory.SecondaryInfinity.Value = true;
     player.inventory.Melee.Value = true;
-    player.inventory.Explosive.Value = true; player.inventory.ExplosiveInfinity.Value = true;
-
-player.contextedProperties.MaxHp.Value = 1000;
+    player.inventory.Explosive.Value = true;
+    player.inventory.ExplosiveInfinity.Value = true;
+    player.contextedProperties.MaxHp.Value = 1000;
   }
   function getvip3(player) {
     player.inventory.Main.Value = true;
@@ -744,7 +742,7 @@ var switchAdminsZonesTrigger = AreaPlayerTriggerService.Get("saz")
 switchAdminsZonesTrigger.Tags = ["saz"];
 switchAdminsZonesTrigger.Enable = true;
 switchAdminsZonesTrigger.OnEnter.Add(function(player){
-  if (player.id == "41F16562BF7046EA" || || player.id == "78B0B66D795E5120") {
+  if (player.id == "41F16562BF7046EA" || player.id == "78B0B66D795E5120") {
     if (enableAdminsZones) enableAdminsZones = false;
     else enableAdminsZones = true;
     player.Ui.Hint.Value = `Вы сменили работоспособность важных зон, сейчас: ${enableAdminsZones}`;
