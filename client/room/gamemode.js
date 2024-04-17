@@ -66,16 +66,21 @@ Teams.OnRequestJoinTeam.Add(function(player, team){
   }
   function getvip1(player) {
     player.inventory.Main.Value = true;
-    player.inventory.Secondary.Value = true; player.inventory.SecondaryInfinity.Value = true;
-    player.inventory.Melee.Value = true; player.contextedProperties.MaxHp.Value = 500;
+    player.inventory.Secondary.Value = true; 
+player.inventory.SecondaryInfinity.Value = true;
+    player.inventory.Melee.Value = true; 
+player.contextedProperties.MaxHp.Value = 500;
   }
   function getvip2(player) {
     player.inventory.Main.Value = true;
+
 player.inventory.MainInfinity.Value = true;
     player.inventory.Secondary.Value = true;
+
 player.inventory.SecondaryInfinity.Value = true;
     player.inventory.Melee.Value = true;
     player.inventory.Explosive.Value = true; player.inventory.ExplosiveInfinity.Value = true;
+
 player.contextedProperties.MaxHp.Value = 1000;
   }
   function getvip3(player) {
