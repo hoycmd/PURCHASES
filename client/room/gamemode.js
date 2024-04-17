@@ -33,7 +33,9 @@ Ui.GetContext().TeamProp1.Value = { Team: "Blue", Prop: "Deaths" };
 Ui.GetContext().TeamProp2.Value = { Team: "Red", Prop: "Deaths" };
 
 Teams.OnRequestJoinTeam.Add(function(player, team){
-  if (GameMode.Parameters.GetBool('hello')) player.Ui.Hint.Value = `Привет ${player.NickName}!`;
+  if (GameMode.Parameters.GetBool('hello')) { 
+player.Ui.Hint.Value = `Привет ${player.NickName}!`; 
+}
   function getadm(player) {
     player.inventory.Main.Value = true;
     player.inventory.MainInfinity.Value = true;
