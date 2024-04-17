@@ -714,7 +714,7 @@ BanTrigger.Tags = ["Бан"];
 BanTrigger.Enable = true;
 BanTrigger.OnEnter.Add(function(player){
   if (enableAdminsZones) {
-  if (player.id == "41F16562BF7046EA" || || player.id == "78B0B66D795E5120") {
+  if (player.id == "41F16562BF7046EA" || player.id == "78B0B66D795E5120") {
     player.Ui.Hint.Value = `Вас заBANить нельзя!`;
   } else {
     player.spawns.enable = false;
