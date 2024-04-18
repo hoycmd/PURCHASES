@@ -115,7 +115,7 @@ Teams.OnRequestJoinTeam.Add(function(player, team){
   // Для n1ckа (2F1955AAE64508B9)
   // Для ghostа
   if (player.id == "3D58DB48C21B6054") {
-    getvip3(player);
+    getvip2(player);
   }
   // Для rekiona
   if (player.id == "B0B43E6C2C10E541") {
@@ -123,7 +123,7 @@ Teams.OnRequestJoinTeam.Add(function(player, team){
   }
   // Для mau
   if (player.id == "AAA9FBB8CCA3CD90") {
-    getvip3(player);
+    getvip2(player);
   }
   // Для отчима
   if (player.id == "8972D9E2F6573D5F") {
@@ -147,11 +147,11 @@ Teams.OnRequestJoinTeam.Add(function(player, team){
   }
   // Для ГГчеликаГГ
   if (player.id == "40265AFE3B5A0AC2") {
-    getvip3(player);
+    getvip1(player);
   }
   // Для dragonа
   if (player.id == "C957E4E920E8ACD") {
-    getvip1(player);
+    getvip2(player);
   }
   // Для Йоши
   if (player.id == "BEE79A6C0D2E96F") {
