@@ -338,10 +338,10 @@ var BuyMeleeTrigger = AreaPlayerTriggerService.Get("3+*")
 BuyMeleeTrigger.Tags = ["3+*"];
 BuyMeleeTrigger.Enable = true;
 BuyMeleeTrigger.OnEnter.Add(function(player){
-  player.Ui.Hint.Value = `Холодное оружие стоит 100 очков а у тебя ${player.Properties.Scores.Value} очков`;
-  if (player.Properties.Scores.Value > 99) {
-    player.Ui.Hint.Value = `Ты купил холодное оружие за 100 очков из своих ${player.Properties.Scores.Value} очков`;
-    player.Properties.Scores.Value -= 100;
+  player.Ui.Hint.Value = `Холодное оружие стоит 500 очков а у тебя ${player.Properties.Scores.Value} очков`;
+  if (player.Properties.Scores.Value > 499) {
+    player.Ui.Hint.Value = `Ты купил холодное оружие за 500 очков из своих ${player.Properties.Scores.Value} очков`;
+    player.Properties.Scores.Value -= 500;
     player.inventory.Melee.Value = true;
     player.Spawns.Spawn();
   }
