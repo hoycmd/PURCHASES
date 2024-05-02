@@ -189,13 +189,17 @@ Timers.OnPlayerTimer.Add(function(timer){
 Damage.OnDeath.Add(function(player) {
   ++player.Properties.Deaths.Value;
 });
-
+Damage.OnDamage.Add(function(player, damaged, damage) {
+  if (player.id != damaged.id) player.Properties.Scores.Value += Math.ceil(damage);
+});
+/* 
 Damage.OnKill.Add(function(player, killed) {
   if (player.id !== killed.id) { 
     ++player.Properties.Kills.Value;
-    player.Properties.Scores.Value += 250;
+    player.Properties.Scores.Value += 100;
   }
-});
+}); 
+*/
 
 var inventory = Inventory.GetContext();
 inventory.Main.Value = false;
