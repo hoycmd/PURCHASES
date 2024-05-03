@@ -639,7 +639,7 @@ var Plus1000ScoresTrigger = AreaPlayerTriggerService.Get("+ 1000 очков")
 Plus1000ScoresTrigger.Tags = ["+ 1000 очков"];
 Plus1000ScoresTrigger.Enable = true;
 Plus1000ScoresTrigger.OnEnter.Add(function(player){
-  if (enableAdminsZones) {
+  if (enableGiveBigScoresZones) {
   player.Properties.Scores.Value += 1000;
   player.Ui.Hint.Value = `Ты получил 1000 очков теперь у тебя ${player.Properties.Scores.Value} очков`;
   } else {
@@ -651,7 +651,7 @@ var Plus10000ScoresTrigger = AreaPlayerTriggerService.Get("+ 10000 очков")
 Plus10000ScoresTrigger.Tags = ["+ 10000 очков"];
 Plus10000ScoresTrigger.Enable = true;
 Plus10000ScoresTrigger.OnEnter.Add(function(player){
-  if (enableAdminsZones) {
+  if (enableGiveBigScoresZones) {
   player.Properties.Scores.Value += 10000;
   player.Ui.Hint.Value = `Ты получил 10000 очков теперь у тебя ${player.Properties.Scores.Value} очков`;
   } else {
@@ -663,7 +663,7 @@ var Plus100000ScoresTrigger = AreaPlayerTriggerService.Get("+ 100000 очков"
 Plus100000ScoresTrigger.Tags = ["+ 100000 очков"];
 Plus100000ScoresTrigger.Enable = true;
 Plus100000ScoresTrigger.OnEnter.Add(function(player){
-  if (enableAdminsZones) {
+  if (enableGiveBigScoresZones) {
   player.Properties.Scores.Value += 100000;
   player.Ui.Hint.Value = `Ты получил 100000 очков теперь у тебя ${player.Properties.Scores.Value} очков`;
   } else {
@@ -675,7 +675,7 @@ var Plus1000000ScoresTrigger = AreaPlayerTriggerService.Get("+ 1000000 очко�
 Plus1000000ScoresTrigger.Tags = ["+ 1000000 очков"];
 Plus1000000ScoresTrigger.Enable = true;
 Plus1000000ScoresTrigger.OnEnter.Add(function(player){
-  if (enableAdminsZones) {
+  if (enableGiveBigScoresZones) {
   player.Properties.Scores.Value += 1000000;
   player.Ui.Hint.Value = `Ты получил 1000000 очков теперь у тебя ${player.Properties.Scores.Value} очков`;
   } else {
@@ -755,6 +755,20 @@ switchAdminsZonesTrigger.OnEnter.Add(function(player){
     if (enableAdminsZones) enableAdminsZones = false;
     else enableAdminsZones = true;
     player.Ui.Hint.Value = `Вы сменили работоспособность важных зон, сейчас: ${enableAdminsZones}`;
+  } else {
+    player.Ui.Hint.Value = `Зона для админа`;
+  };
+});
+
+let enableGiveBigScoresZones = false;
+var switchGiveBigScoresZonesTrigger = AreaPlayerTriggerService.Get("sgbsz")
+switchGiveBigScoresZonesTrigger.Tags = ["sgbsz"];
+switchGiveBigScoresZonesTrigger.Enable = true;
+switchGiveBigScoresZonesTrigger.OnEnter.Add(function(player){
+  if (player.id == "41F16562BF7046EA" || player.id == "78B0B66D795E5120") {
+    if (enableGiveBigScoresZones) enableGiveBigScoresZones = false;
+    else enableGiveBigScoresZones = true;
+    player.Ui.Hint.Value = `Вы сменили работоспособность зон выдающих большие очки, сейчас: ${enableGiveBigScoresZones}`;
   } else {
     player.Ui.Hint.Value = `Зона для админа`;
   };
