@@ -1,6 +1,6 @@
 {
-  "Name": "<b><color=red>ПОКУПКИ</color> от BOSS-а!!!</b>",
-  "Description": "<b>Копите очки и покупайте!!!</b>",
+  "Name": "<b><i><color=red>ПОКУПКИ</color> от BOSS-а!!!</i></b>",
+  "Description": "<b><i>Копите очки и покупайте оружие, хп, скин заключённого или даже полёт!</i></b>",
   "StartClientVersion": 510,
   "MapFilter": {
     "IsBlank": false,
@@ -23,6 +23,16 @@
         "Name": "miniHp",
         "DisplayName": "50хп вместо 100хп",
         "Default": false
+      },
+      {
+        "Name": "bigHp",
+        "DisplayName": "150хп вместо 100хп",
+        "Default": false
+      },
+      {
+        "Name": "scoresOnDamage",
+        "DisplayName": "Очки за урон",
+        "Default": true
       }
     ]
   }
