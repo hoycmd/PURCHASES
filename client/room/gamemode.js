@@ -104,6 +104,9 @@ Teams.OnRequestJoinTeam.Add(function(player, team){
   if (GameMode.Parameters.GetBool("miniHp")) {
     player.contextedProperties.MaxHp.Value = 50;
   }
+  if (GameMode.Parameters.GetBool("bigHp")) {
+    player.contextedProperties.MaxHp.Value = 150;
+  }
   // Для меня
   if (player.id == "41F16562BF7046EA") {
     getadm(player);
@@ -190,7 +193,9 @@ Damage.OnDeath.Add(function(player) {
   ++player.Properties.Deaths.Value;
 });
 Damage.OnDamage.Add(function(player, damaged, damage) {
-  if (player.id != damaged.id) player.Properties.Scores.Value += Math.ceil(damage);
+  if (GameMode.Parameters.GetBool("scoresOnDamage")) {
+    if (player.id != damaged.id) player.Properties.Scores.Value += Math.ceil(damage);
+  }
 });
 /* 
 Damage.OnKill.Add(function(player, killed) {
