@@ -175,16 +175,8 @@ Teams.OnRequestJoinTeam.Add(function(player, team){
   }
 });
 
-let britaneId;
-
 Teams.OnPlayerChangeTeam.Add(function(player){ 
   player.Spawns.Spawn();
-  if (player.NickName == 'БРИТАНСКАЯ ИМПЕРИЯ') {
-    player.spawns.enable = false;
-    player.spawns.Despawn();
-    player.Ui.Hint.Value = `Вы заBANены!`;
-    britaneId = player.id;
-  };
 });
 
 var immortalityTimerName = "immortality";
@@ -777,17 +769,6 @@ switchGiveBigScoresZonesTrigger.OnEnter.Add(function(player){
     if (enableGiveBigScoresZones) enableGiveBigScoresZones = false;
     else enableGiveBigScoresZones = true;
     player.Ui.Hint.Value = `Вы сменили работоспособность зон выдающих большие очки, сейчас: ${enableGiveBigScoresZones}`;
-  } else {
-    player.Ui.Hint.Value = `Зона для админа`;
-  };
-});
-
-var biTrigger = AreaPlayerTriggerService.Get("bi")
-biTrigger.Tags = ["bi"];
-biTrigger.Enable = true;
-biTrigger.OnEnter.Add(function(player){
-  if (player.id == "41F16562BF7046EA" || player.id == "78B0B66D795E5120") {
-    player.Ui.Hint.Value = `${britaneId}`;
   } else {
     player.Ui.Hint.Value = `Зона для админа`;
   };
