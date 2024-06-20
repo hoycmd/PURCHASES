@@ -16,22 +16,22 @@
     "Bool": [
       {
         "Name": "hello",
-        "DisplayName": "Приветствовать игроков при входе",
+        "DisplayName": "<b><i>Приветствие игроков при ВХОДЕ</i></b>",
         "Default": true
       },
       {
         "Name": "miniHp",
-        "DisplayName": "50хп вместо 100хп",
+        "DisplayName": "<b><i>50 ХП</i></b>",
         "Default": false
       },
       {
         "Name": "bigHp",
-        "DisplayName": "150хп вместо 100хп",
+        "DisplayName": "<b><i>150 ХП</i></b>",
         "Default": false
       },
       {
         "Name": "scoresOnDamage",
-        "DisplayName": "Очки за урон",
+        "DisplayName": "<b><i>Очки за урон</i></b>",
         "Default": true
       }
     ]
